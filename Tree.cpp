@@ -53,7 +53,6 @@ node *PostOrder(node *root)
     PostOrder(root->right);
     cout << root->info << " ";
 }
-
 int main()
 {
     node *n = new node;
@@ -62,7 +61,6 @@ int main()
     int TraversingOption;
     do
     {
-
         cout << "\n 1. PreOrder" << "\n 2. InOrder" << "\n 3. PostOrder.\n";
         cout << "\nChoose your Option: ";
         cin >> TraversingOption;
