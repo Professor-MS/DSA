@@ -3,17 +3,17 @@ using namespace std;
 
 int main()
 {
-    int Array[5] = {100, 200, 300, 400, 500};
-    int Num = 0;
-    for (int i = 0; i < 5; i++)
+    int Array[6] = {90, 60, 30, 40, 105, 101};
+    int NumberOfYear = 0;
+    for (int i = 0; i < 6; i++)
     {
         cout << Array[i] << ",";
-        if (Array[i] >= 300)
+        if (Array[i] >= 100) // Calculate the Number of years which exceed or equal to 100
         {
-            Num = Num + 1;
+            NumberOfYear = NumberOfYear + 1;
         }
     }
-    cout << "\nNumber of year exceed 300 is " << Num;
+    cout << "\nNumber of years which exceed or equal to 100 is: " << NumberOfYear;
 
     return 0;
 }

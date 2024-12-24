@@ -2,80 +2,81 @@
 using namespace std;
 struct node
 {
-    int info;
-    node *left;
-    node *right;
+    int information;
+    node *leftSide;
+    node *rightSide;
 };
 node *Tree()
 {
     int data;
     node *NewNode = new node;
-    cout << "\nEnter data into tree: ";
+    cout << "\nEnter data into Node: ";
     cin >> data;
     if (data == -1)
     {
         return NULL;
     }
-    NewNode->info = data;
-    cout << "\nEnter for left of the " << data << " :";
-    NewNode->left = Tree();
-    cout << "\nEnter for Right of the " << data << " :";
-    NewNode->right = Tree();
+    NewNode->information = data;
+    cout << "\nEnter left Node of " << data << " :";
+    NewNode->leftSide = Tree();
+    cout << "\nEnter Right Node of " << data << " :";
+    NewNode->rightSide = Tree();
     return NewNode;
 }
-node *PreOrder(node *root)
+node *PreOrder(node *rootNode)
 {
-    if (root == NULL)
+    if (rootNode == NULL)
     {
         return NULL;
     }
-    cout << root->info << " ";
-    PreOrder(root->left);
-    PreOrder(root->right);
+    cout << rootNode->information << " ";
+    PreOrder(rootNode->leftSide);
+    PreOrder(rootNode->rightSide);
 }
-node *InOrder(node *root)
+node *InOrder(node *rootNode)
 {
-    if (root == NULL)
+    if (rootNode == NULL)
     {
         return NULL;
     }
-    InOrder(root->left);
-    cout << root->info << " ";
-    InOrder(root->right);
+    InOrder(rootNode->leftSide);
+    cout << rootNode->information << " ";
+    InOrder(rootNode->rightSide);
 }
-node *PostOrder(node *root)
+node *PostOrder(node *rootNode)
 {
-    if (root == NULL)
+    if (rootNode == NULL)
     {
         return NULL;
     }
-    PostOrder(root->left);
-    PostOrder(root->right);
-    cout << root->info << " ";
+    PostOrder(rootNode->leftSide);
+    PostOrder(rootNode->rightSide);
+    cout << rootNode->information << " ";
 }
 int main()
 {
-    node *n = new node;
-    node *root = NULL;
-    root = Tree();
+    // node *n = new node;
+    node *rootNode = NULL;
+    rootNode = Tree();
     int TraversingOption;
     do
     {
-        cout << "\n 1. PreOrder" << "\n 2. InOrder" << "\n 3. PostOrder.\n";
+        cout << "\n 1. PreOrder Traversing" << "\n 2. InOrder Traversing" << "\n 3. PostOrder Traversing.\n";
         cout << "\nChoose your Option: ";
         cin >> TraversingOption;
         switch (TraversingOption)
         {
         case 1:
-            PreOrder(root);
+            PreOrder(rootNode);
             break;
         case 2:
-            InOrder(root);
+            InOrder(rootNode);
             break;
         case 3:
-            PostOrder(root);
+            PostOrder(rootNode);
             break;
         default:
+            cout << "\n==========>>Select from the Given Choices.<<=========\n";
             break;
         }
     } while (TraversingOption);

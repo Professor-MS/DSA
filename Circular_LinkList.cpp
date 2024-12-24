@@ -6,27 +6,27 @@ struct Node
     int Data;
     Node *Next = NULL;
 };
-void atHead(Node *&head, int val)
+void atHead(Node *&headNode, int value)
 {
     Node *newNode = new Node;
-    newNode->Data = val;
+    newNode->Data = value;
     // Node *temp = NULL;
-    if (head == NULL)
+    if (headNode == NULL)
     {
-        head = newNode;
+        headNode = newNode;
         return;
     }
-    newNode->Next = head;
-    head = newNode;
+    newNode->Next = headNode;
+    headNode = newNode;
 }
-void Display(Node *head)
+void Display(Node *headNode)
 {
-    if (head == NULL)
+    if (headNode == NULL)
     {
         cout << "Empty LinkedList" << endl;
         return;
     }
-    Node *temp = head;
+    Node *temp = headNode;
     while (temp != NULL)
     {
         cout << temp->Data << " -> ";
